@@ -1,0 +1,66 @@
+@Metadata.layer:#CORE
+//annotate view zmst1009_mark
+@UI.headerInfo: {
+    typeName: 'Studentid',
+    typeNamePlural: 'Studentsid',
+    title: {type: #STANDARD, label: 'Student', value: 'StudentId' }
+    //imageUrl: 'Studentimage'
+    }
+annotate view zprojection_marks
+    with 
+{
+   @UI.facet: [
+        { 
+            id: 'Marks',
+            purpose: #STANDARD,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Acadamic Details',
+            position: 10
+           // url: 'Studentimage'
+        },
+         { 
+            id: 'Attend',
+            purpose: #STANDARD,
+            type: #LINEITEM_REFERENCE,
+            label: 'Attendance Details',
+            position: 20,
+           targetElement: '_attend'
+           // url: 'Studentimage'
+          
+        }
+    ]
+    @UI.hidden: false
+   
+    @UI: { 
+        lineItem: [{position: 10, label: 'Student ID'}],
+        identification: [{position: 10, label: 'Student ID'}], 
+        selectionField: [{position: 10}]
+    }
+    StudentId;
+    @UI: { 
+        lineItem: [{position: 20, label: 'Subject Id'}],
+        identification: [{position: 20, label: 'Subject Id'}],
+        selectionField: [{position: 20}] 
+    }
+   
+    SubjectId;
+    @UI: { 
+        lineItem: [{position: 30, label: 'Assesment Id'}],
+        identification: [{position: 30, label: 'Assesment Id'}],
+        selectionField: [{position: 30}] 
+    }
+    AssesmentId;
+    
+    @UI: { 
+        lineItem: [{position: 40, label: 'Marks'}],
+        identification: [{position: 40, label: 'Marks'}],
+        selectionField: [{position: 40}] 
+    }
+    Marks;
+  //  @UI: { 
+//        lineItem: [{position: 40, label: 'StudentDisplay'}],
+//        identification: [{position: 40, label: 'StudentDisplay'}],
+//        selectionField: [{position: 40}] 
+//    }
+//    StudentDisplay;
+}

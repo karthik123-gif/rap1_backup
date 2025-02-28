@@ -1,0 +1,136 @@
+managed implementation in class zbp_projection_student unique;
+//with draft;
+//strict ( 2 );
+
+define behavior for zprojection_student //alias <alias_name>
+persistent table zmst1009_student
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly:update ) studentId;
+  field (mandatory : create) studentId , StudentName ,class ,section1;
+  association _Marks { create; }
+
+  action calculateAvgMarks result [1] $self;
+  action archiveStudent result [1] $self;
+  //determination calculateAvgMarks on modify { create; update; delete; }
+    //association _Section;
+
+  mapping for zmst1009_student {
+    StudentId  = student_id;
+    StudentName = student_name;
+    age        = age;
+    class      = class;
+    section1   = section_1;
+    avgMarks   = avg_marks;
+    Studentimage = student_image_url;
+
+  }
+}
+
+define behavior for zprojection_marks //alias <alias_name>
+persistent table zmst1009_marks
+lock dependent by _student
+//authorization dependent by _student
+//etag master AssesmentId
+{
+  update;
+  delete;
+  field ( readonly ) StudentId;
+  field ( mandatory : create )  AssesmentId, SubjectId;
+  association _student;
+    association _attend { create; }
+
+
+//determination calculateAvgMarks on modify { create;  update; delete }
+
+  mapping for zmst1009_marks {
+    StudentId  = student_id;
+    AssesmentId = assesment_id;
+    SubjectId        = subject_id;
+    Marks = marks;
+ }
+
+}
+define behavior for zmst1009_attend1 //alias <alias_name>
+persistent table zmst1009_attend
+lock dependent by _student
+//authorization dependent by _student
+//etag master AssesmentId
+{
+  update;
+  delete;
+  field ( readonly ) StudentId;
+  field ( readonly : update ) AttendanceId;
+   field ( readonly ) AssessmentID;
+    field ( readonly ) SbjectId;
+  association _student ;
+  association _marks1;
+
+//determination calculateAvgMarks on modify { create;  update; delete }
+
+  mapping for zmst1009_attend {
+    StudentId  = student_id;
+    SbjectId = subject_id;
+    AssessmentID = assesment_id;
+    AttendanceId = attendance_id;
+    AttendancePercent        = attendance_percent;
+    NoOfWorkingdays = no_of_workingdays;
+ }
+
+
+}
+
+define behavior for zprojection_personal //alias <alias_name>
+persistent table zmst1009_pd
+lock dependent by _student
+//authorization dependent by _student
+//etag master AssesmentId
+{
+  update;
+  delete;
+  field ( readonly ) StudentId;
+  field ( mandatory : create ) ParentId;
+  association _student;
+
+//determination calculateAvgMarks on modify { create;  update; delete }
+
+  mapping for zmst1009_pd {
+    StudentId  = student_id;
+    ParentId = parent_id;
+    ParentName        = parent_name;
+    ParentAge = parent_age;
+    Contact = contact;
+ }
+
+}
+
+define behavior for zmst1009_file_upld //alias <alias_name>
+persistent table zfile_upload1
+lock dependent by _file
+//authorization dependent by _student
+//etag master AssesmentId
+{
+
+  update;
+  delete;
+  field ( readonly ) StudentId;
+  association _file;
+
+//determination calculateAvgMarks on modify { create;  update; delete }
+
+  mapping for zfile_upload1 {
+    StudentId  = student_id;
+    AttachmentId = attachment_id;
+    Attachment        = attachment;
+    Comments = comments;
+    Filename = filename;
+    Mimetype = mimetype;
+
+ }
+
+}

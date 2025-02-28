@@ -1,0 +1,39 @@
+    managed implementation in class zbp_file_upload unique;
+   // strict ( 2 );
+    with draft;
+
+    define behavior for zfile_sample //alias <alias_name>
+    persistent table zfile_upload1
+   draft table zfile_upload1_d
+    lock master total etag Comments
+    authorization master ( instance )
+    etag master Comments
+    {
+
+      create;
+      update;
+      delete;
+    //  field (readonly , numbering : managed) customerId;
+      field ( mandatory : create )  AttachmentId, StudentId ;
+     // action ShowPopup parameter  zfile_popup_params ;
+//
+      draft action Activate;
+      //draft action AdditionalSave;
+      draft action Discard;
+      draft action Edit;
+      draft action Resume;
+      draft determine action Prepare;
+
+  action ( features: instance ) uploadFile result [1] $self;
+
+       mapping for zfile_upload1 {
+        StudentId  = student_id;
+        AttachmentId = attachment_id;
+        Attachment        = attachment;
+        Comments = comments;
+       // Filename = filename;
+        //Mimetype = mimetype;
+
+    }
+
+    }

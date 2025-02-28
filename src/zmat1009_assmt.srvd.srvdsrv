@@ -1,0 +1,4 @@
+@EndUserText.label: 'service for assessment data'
+define service Zmat1009_assmt {
+  expose zmst1009_asmnt_cds as assessment;
+}

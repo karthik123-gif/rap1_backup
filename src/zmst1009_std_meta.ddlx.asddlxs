@@ -1,0 +1,117 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Student',
+    typeNamePlural: 'Students',
+    title: {type: #STANDARD, label: 'Student', value: 'StudentName' },
+    imageUrl: 'Studentimage'
+}
+//annotate view zprojection_studentt
+annotate view zprojection_student with
+{
+
+  @UI.facet: [
+      {
+          id: 'Student',
+          purpose: #STANDARD,
+          type: #IDENTIFICATION_REFERENCE,
+          label: 'Student Name',
+          position: 10
+         // url: 'Studentimage'
+
+    },
+     {
+          id: 'Upload',
+          purpose: #STANDARD,
+          type: #LINEITEM_REFERENCE,
+          label: 'File upload',
+          position: 20,
+          targetElement: '_Attachment'
+
+    },
+
+    {
+          id: 'Section',
+          purpose: #HEADER,
+          type: #DATAPOINT_REFERENCE,
+          targetQualifier: 'Section_data'
+
+    },
+      {
+          id: 'Acadamics',
+          purpose: #STANDARD,
+          type: #LINEITEM_REFERENCE,
+          label: 'Acadamic Details',
+          position: 20,
+          targetElement: '_Marks'
+         // url: 'Studentimage'
+
+      },
+       {
+          id: 'Parent',
+          purpose: #STANDARD,
+          type: #LINEITEM_REFERENCE,
+          label: 'Parent Details',
+          position: 20,
+          targetElement: '_parent'
+         // url: 'Studentimage'
+
+      }
+
+  ]
+  @UI.hidden: false
+  // @UI.fieldGroup: [{qualifier: 'StudentId' , position: 10 }]
+  @UI: {
+      lineItem: [{position: 10, label: 'Student ID'}],
+      identification: [{position: 10, label: 'Student ID'}]
+  }
+  studentId;
+  @UI.hidden: false
+  @UI: {
+      lineItem: [{position: 10, label: 'Student Image'}],
+     identification: [{position: 30, label: 'Student Image'}] ,
+     selectionField: [{position: 20}]
+  }
+
+  Studentimage;
+
+  @UI: {
+      lineItem: [{position: 20, label: 'Student Name'},
+                { position: 40, label: 'Approve', type: #FOR_ACTION, dataAction: 'ApproveStudent' }],
+      identification: [{position: 20, label: 'Student Name'}],
+      selectionField: [{position: 20}]
+  }
+  StudentName;
+
+  @UI: {
+      lineItem: [{position: 30, label: 'Student Age'}],
+      identification: [{position: 30, label: 'Student Age'}],
+      selectionField: [{position: 30}]
+  }
+  Age;
+
+  @UI: {
+      lineItem: [{position: 40, label: 'Student Class'}],
+      identification: [{position: 40, label: 'Student Class'}],
+      selectionField: [{position: 40}]
+  }
+  class;
+
+  @UI.dataPoint:{ qualifier: 'Section_data', title: 'Section' }
+  @UI: {
+      lineItem: [{position: 50, label: 'Section', criticality: 'overallcriticality'}],
+      identification: [{position: 50, label: 'Section' }],
+      selectionField: [{position: 50}]
+  }
+  section1;
+
+  @UI: {
+      lineItem: [{position: 60, label: 'Average Marks'}],
+      identification: [{position: 60, label: 'Average Marks'}],
+      selectionField: [{position: 60}]
+  }
+  avgMarks;
+  @UI: {
+     lineItem: [{position: 60, label: '_marks'}]
+     }
+  _Marks;
+}

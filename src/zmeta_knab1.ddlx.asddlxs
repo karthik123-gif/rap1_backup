@@ -1,0 +1,43 @@
+@Metadata.layer: #CORE
+annotate view zproj_knab1
+    with 
+{
+  @UI.facet: [ { id: 'KNA1',
+purpose: #STANDARD,
+type: #IDENTIFICATION_REFERENCE,
+label: 'Course Details',
+position: 10 }
+ ]
+@UI.hidden: true
+courseuuid;
+@UI: { lineItem: [{position: 10, label: 'Customer Number'}],
+identification: [{position: 10, label: 'Customer Number'}], 
+selectionField: [{position: 10}]} 
+
+kunnr;
+
+@UI: { lineItem: [{position: 20, label: 'company name' }],
+identification: [{position: 20, label: 'company name' }],
+selectionField: [{position: 20}]}
+
+name1;
+
+@UI: { lineItem: [{position: 30 , label: 'company' }],
+identification: [{position: 30 , label: 'company' }],
+selectionField: [{position: 30}]}
+
+name2;
+
+@UI: { lineItem: [{ position: 40, label: 'name' }] ,
+identification: [{position: 40, label: 'name' }] }
+
+bukrs;
+
+@UI: { lineItem: [{ position: 50, label: 'company code' }] ,
+identification: [{position: 40, label: 'Price' }] }
+
+erdat;
+
+
+}
+    

@@ -1,0 +1,10 @@
+@EndUserText.label: 'projection binding for student'
+define service Zprojection_MARK1 {
+  expose zprojection_student  as Student;
+  expose zprojection_marks    as marks;
+  expose zprojection_personal as Peronal;
+  expose zmst1009_attend1     as Attendance;
+  expose zmst1009_file_upld   as file;
+  expose zmst1009_consumption;
+  expose zmst1009_agency_c;
+}

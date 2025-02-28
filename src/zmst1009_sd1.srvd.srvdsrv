@@ -1,0 +1,5 @@
+@EndUserText.label: 'service definition or student'
+define service Zmst1009_sd1 {
+  expose zmst1009_std_cds as student;
+  expose zmst1009_mark    as marks;
+}

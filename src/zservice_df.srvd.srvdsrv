@@ -1,0 +1,6 @@
+@EndUserText.label: 'service definition'
+define service Zservice_df {
+  expose zproj_knab1;
+  expose zfile_sample     as fileupload;
+  expose zmst1009_std_cds as Student;
+}

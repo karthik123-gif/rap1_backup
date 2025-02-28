@@ -1,0 +1,23 @@
+managed implementation in class zbp_mst1009_mark unique;
+//strict ( 2 );
+
+define behavior for zmst1009_mark alias marks
+persistent table zmst1009_marks
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  //field ( readonly : update ) StudentId, AssesmentId, SubjectId;
+  association _Student;
+
+  mapping for zmst1009_marks {
+    AssesmentId = assesment_id;
+    StudentId = student_id;
+    SubjectId = subject_id;
+    Marks = marks;
+
+  }
+}

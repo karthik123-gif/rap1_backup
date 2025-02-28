@@ -1,0 +1,71 @@
+@Metadata.layer:#CORE
+//annotate view zmst1009_mark
+@UI.headerInfo: {
+    typeName: 'StudentName',
+    typeNamePlural: 'Studentsid',
+    title: {type: #STANDARD, label: 'Student', value: 'StudentId' }
+    //imageUrl: 'Studentimage'
+    }
+annotate view zmst1009_attend1
+    with 
+{
+   @UI.facet: [
+        { 
+            id: 'Attend',
+            purpose: #STANDARD,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Attendance Details',
+            position: 10
+           // url: 'Studentimage'
+        }
+    ]
+    @UI.hidden: false
+   
+    @UI: { 
+        lineItem: [{position: 10, label: 'Student ID'}],
+        identification: [{position: 10, label: 'Student ID'}], 
+        selectionField: [{position: 10}]
+    }
+    StudentId;
+    @UI: { 
+        lineItem: [{position: 45, label: 'AttendanceId'}],
+        identification: [{position: 45, label: 'AttendanceId'}],
+        selectionField: [{position: 45}] 
+    }
+   
+    AttendanceId;
+    
+//     @UI: { 
+//        lineItem: [{position: 40, label: 'StudentName'}],
+//        identification: [{position: 40, label: 'StudentName'}],
+//        selectionField: [{position: 40}] 
+//    }
+//    StudentName;
+    
+    @UI: { 
+        lineItem: [{position: 50, label: 'No Of Workingdays'}],
+        identification: [{position: 50, label: 'No Of Workingdays'}],
+        selectionField: [{position: 50}] 
+    }
+    
+    NoOfWorkingdays;
+    @UI: { 
+        lineItem: [{position: 40, label: 'Attendance Percent'}],
+        identification: [{position: 40, label: 'Attendance Percent'}],
+        selectionField: [{position: 40}] 
+    }
+    AttendancePercent;
+    @UI: { 
+        lineItem: [{position: 20, label: 'SbjectId'}],
+        identification: [{position: 20, label: 'SbjectId'}],
+        selectionField: [{position: 20}] 
+    }
+    SbjectId ;
+     @UI: { 
+        lineItem: [{position: 30, label: 'AssessmentID'}],
+        identification: [{position: 30, label: 'AssessmentID'}],
+        selectionField: [{position: 30}] 
+    }
+    AssessmentID;
+   
+}

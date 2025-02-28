@@ -1,0 +1,55 @@
+@Metadata.layer:#CORE
+//annotate view zmst1009_mark
+@UI.headerInfo: {
+    typeName: 'ParentName',
+    typeNamePlural: 'Studentsid',
+    title: {type: #STANDARD, label: 'Student', value: 'ParentName' }
+    //imageUrl: 'Studentimage'
+    }
+annotate view zprojection_personal
+    with 
+{
+   @UI.facet: [
+        { 
+            id: 'Personal',
+            purpose: #STANDARD,
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Parent Details',
+            position: 10
+           // url: 'Studentimage'
+        }
+    ]
+    @UI.hidden: false
+   
+    @UI: { 
+        lineItem: [{position: 10, label: 'Student ID'}],
+        identification: [{position: 10, label: 'Student ID'}], 
+        selectionField: [{position: 10}]
+    }
+    StudentId;
+    @UI: { 
+        lineItem: [{position: 20, label: 'ParentId'}],
+        identification: [{position: 20, label: 'ParentId'}],
+        selectionField: [{position: 20}] 
+    }
+   
+    ParentId;
+    @UI: { 
+        lineItem: [{position: 30, label: 'ParentName'}],
+        identification: [{position: 30, label: 'ParentName'}],
+        selectionField: [{position: 30}] 
+    }
+    ParentName;
+    @UI: { 
+        lineItem: [{position: 40, label: 'ParentAge'}],
+        identification: [{position: 40, label: 'ParentAge'}],
+        selectionField: [{position: 40}] 
+    }
+    ParentAge;
+    @UI: { 
+        lineItem: [{position: 40, label: 'Contact'}],
+        identification: [{position: 40, label: 'Contact'}],
+        selectionField: [{position: 40}] 
+    }
+    Contact;
+}

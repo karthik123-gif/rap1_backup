@@ -1,0 +1,35 @@
+managed implementation in class zbp_mst1009_std_cds unique;
+//strict ( 2 );
+  with draft;
+
+define behavior for zmst1009_std_cds //alias <alias_name>
+persistent table zmst1009_student
+draft table zstudent_d
+lock master total etag StudentName
+authorization master ( instance )
+etag master StudentName
+{
+  create;
+  update;
+  delete;
+  field (mandatory : create) studentId , StudentName ,class ,section1;
+
+ draft action Activate;
+      //draft action AdditionalSave;
+      draft action Discard;
+      draft action Edit;
+      draft action Resume;
+      draft determine action Prepare;
+
+
+  mapping for zmst1009_student {
+    StudentId  = student_id;
+    StudentName = student_name;
+    age        = age;
+    class      = class;
+    section1   = section_1;
+    avgMarks   = avg_marks;
+    Studentimage = student_image_url;
+
+  }
+}

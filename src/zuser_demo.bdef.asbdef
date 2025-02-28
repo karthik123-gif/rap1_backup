@@ -1,0 +1,14 @@
+managed implementation in class zbp_user_demo unique;
+strict ( 2 );
+
+define behavior for zuser_demo //alias <alias_name>
+persistent table zuser
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) UserId;
+}

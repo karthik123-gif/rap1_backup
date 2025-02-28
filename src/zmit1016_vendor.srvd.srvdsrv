@@ -1,0 +1,4 @@
+@EndUserText.label: 'vendor data'
+define service Zmit1016_vendor {
+  expose ZMIT1016_vendordata as vendor;
+}

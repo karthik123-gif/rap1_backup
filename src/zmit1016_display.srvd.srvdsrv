@@ -1,0 +1,4 @@
+@EndUserText.label: 'display cds data'
+define service Zmit1016_display {
+  expose zmit1016_ed1 as emp_course;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'ext cds'
+define service Zprojection_ext {
+  expose ZMIT1016_projection;
+}

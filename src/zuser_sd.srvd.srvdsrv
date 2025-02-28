@@ -1,0 +1,4 @@
+@EndUserText.label: 'service defination 2'
+define service Zuser_sd {
+  expose zuser_demo;
+}

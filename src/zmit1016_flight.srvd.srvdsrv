@@ -1,0 +1,4 @@
+@EndUserText.label: 'demo flight'
+define service Zmit1016_flight {
+  expose zflight_demo;
+}

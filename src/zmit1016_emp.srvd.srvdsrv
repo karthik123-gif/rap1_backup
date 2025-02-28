@@ -1,0 +1,4 @@
+@EndUserText.label: 'employee data'
+define service Zmit1016_emp {
+  expose ZMIT1016_EMP as empdata;
+}

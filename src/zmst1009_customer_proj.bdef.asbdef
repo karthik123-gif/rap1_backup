@@ -1,0 +1,18 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for zmst1009_customer_proj alias Customer
+use etag
+{
+
+  use create;
+  use update;
+  use delete;
+  use action Activate;
+//      use action AdditionalSave;
+      use action Discard;
+      use action Edit;
+      use action Resume;
+      use action Prepare;
+}

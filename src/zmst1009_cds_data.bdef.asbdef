@@ -1,0 +1,28 @@
+managed implementation in class zbp_mst1009_cds_data unique;
+strict ( 2 );
+
+define behavior for zmst1009_cds_data //alias <alias_name>
+persistent table zmst1009_data
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( mandatory : create ) Companycode, Journalentry, Fiscalyear;
+
+  mapping for zmst1009_data {
+    Companycode  = companycode;
+    Journalentry = journalentry;
+    Fiscalyear        = fiscalyear;
+    Postingviewitem      = postingviewitem;
+    Currency   = currency;
+    Lineitemid   = lineitemid;
+    Transactionkey = transactionkey;
+    Financialaccounttype = financialaccounttype;
+
+
+    }
+
+}

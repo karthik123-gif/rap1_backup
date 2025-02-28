@@ -1,0 +1,35 @@
+managed implementation in class zbp_mst109_file1 unique;
+//strict ( 2 );
+with draft;
+
+define behavior for zmst109_file1 //alias <alias_name>
+persistent table zmst1009_file
+draft table zmst1009_file_d
+lock master total etag Comments
+    authorization master ( instance )
+    etag master Comments
+
+{
+  create;
+  update;
+  delete;
+  field ( mandatory : create ) AttachmentId, Id;
+
+   draft action Activate;
+      //draft action AdditionalSave;
+      draft action Discard;
+      draft action Edit;
+      draft action Resume;
+      draft determine action Prepare;
+
+  action ( features: instance ) uploadFile result [1] $self;
+
+       mapping for zmst1009_file {
+        Id  = id;
+        AttachmentId = attachment_id;
+        Attachment        = attachment;
+        Comments = comments;
+       // Filename = filename;
+       }
+
+}

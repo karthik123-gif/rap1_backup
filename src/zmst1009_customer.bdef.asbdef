@@ -1,0 +1,38 @@
+managed implementation in class zbp_customerdata unique;
+strict ( 2 );
+with draft;
+
+define behavior for zmst1009_customer alias Customer
+persistent table zmst1009_cust
+draft table zmst1009_cust_d
+lock master total etag ChangedAt
+authorization master ( instance )
+etag master ChangedAt
+{
+  create;
+  update;
+  delete;
+  field ( readonly ,numbering : managed) CustomerUuid;
+  field (mandatory : create) Name , Email , City;
+  field (readonly) ChangedAt ,CreatedAt ,CreatedBy ,LastChangedBy;
+
+   draft action Activate;
+//      draft action AdditionalSave;
+      draft action Discard;
+      draft action Edit;
+      draft action Resume;
+      draft determine action Prepare;
+
+  mapping for zmst1009_cust {
+     CustomerUuid = customer_uuid;
+     Name         = name;
+     City         = city;
+     Email        = email;
+     CreatedAt    = created_at;
+     CreatedBy    = created_by;
+     LastChangedBy = last_changed_by;
+     ChangedAt    =  changed_at;
+
+  }
+
+}

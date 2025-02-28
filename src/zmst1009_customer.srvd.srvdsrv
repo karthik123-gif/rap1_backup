@@ -1,0 +1,5 @@
+@EndUserText.label: 'customer service definition'
+define service Zmst1009_customer {
+  expose zmst1009_customer_proj as Customer;
+  expose zmst109_file1;
+}

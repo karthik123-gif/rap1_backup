@@ -1,0 +1,7 @@
+@EndUserText.label: 'SD for input data'
+define service Zmst1009_Data {
+  expose zmst1009_cds_data;
+  expose zmst1009_cal_data;
+  expose zmst1009_final;
+  expose zmst109_file1;
+}

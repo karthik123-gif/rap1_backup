@@ -1,0 +1,40 @@
+@Metadata.layer: #CORE
+annotate entity zmst1009_customer_proj
+    with 
+{
+    @UI.facet: [{ id: 'idCustomer', label: 'Customer Detail' ,type: #IDENTIFICATION_REFERENCE, position: 10  }]
+
+
+    @EndUserText.label: 'Customer_id'
+    @UI.identification: [{position: 10  }]
+    CustomerUuid;
+    @UI.lineItem: [{  position: 10}]
+     @UI.identification: [{position: 20  }]
+     @EndUserText.label: 'Customer Name'
+    Name;
+    @UI.lineItem: [{  position: 20}]
+     @UI.identification: [{position: 30  }]
+     @EndUserText.label: 'city'
+    City;
+    @UI.lineItem: [{  position: 30}]
+     @UI.identification: [{position: 40  }]
+     @EndUserText.label: 'E mail'
+    Email;
+     @UI.lineItem: [{  position: 40}]
+     @UI.identification: [{position: 50  }]
+     @EndUserText.label: 'Created By'
+    CreatedBy;
+     @UI.lineItem: [{  position: 50}]
+     @UI.identification: [{position: 60  }]
+     @EndUserText.label: 'Last Changed By'
+    LastChangedBy;
+     @UI.lineItem: [{  position: 60}]
+     @UI.identification: [{position: 70  }]
+     @EndUserText.label: 'Created At'
+    CreatedAt;
+     @UI.lineItem: [{  position: 70}]
+     @UI.identification: [{position: 80  }]
+     @EndUserText.label: 'Changed At'
+    ChangedAt;
+    
+}
